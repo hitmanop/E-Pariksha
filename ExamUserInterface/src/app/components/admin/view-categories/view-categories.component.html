@@ -1,0 +1,49 @@
+<div *ngIf="isLoading" class="loading-container">
+
+</div>
+
+
+<div *ngIf="!isLoading && categories.length === 0" >
+  <mat-card>
+    <h3 class="text-center" style="margin-top: 30px; font-weight: 800; font-size: 20px; color: blue;">
+      <span >No Categories Found Click on Add new to add new Category</span>
+     </h3>
+    <div mat-card-image class="main-div">
+      <img style="height: 350px;width: 450px;;" mat-card-image src="../../../../assets/image_processing20200413-30958-unc553.jpg">
+    </div>
+   
+    <div class="container text-center mb20">
+      <button routerLink="/admin-dashboard/add-category" mat-raised-button color="accent">
+        Add New Category
+      </button>
+    </div>
+  </mat-card>
+</div>
+  
+  <mat-card class="mt10 mr20 ml20" *ngFor="let c of categories">
+    <mat-card-header>
+      <div mat-card-image>
+        <img style="height: 40px; width: 40px;" mat-card-image src="../../../../assets/categories.png">
+
+      </div>
+      <div style="margin-left: 20px;  font-size: 20px; font-weight: 500;">
+        {{ c.title }}
+      </div>
+      
+      <mat-card-actions >
+        <button mat-button color="warn" (click)="deleteCategory(c.cid)" >
+          Delete
+        </button>
+      </mat-card-actions>
+      
+    </mat-card-header>
+    <mat-card-content>
+      <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: grey;">{{ c.description }}</p>
+    </mat-card-content>
+  </mat-card>
+  <div class="container text-center mt20" *ngIf="categories.length != 0">
+    <button routerLink="/admin-dashboard/add-category" mat-raised-button color="accent">
+      Add New Category
+    </button>
+  </div>
+  

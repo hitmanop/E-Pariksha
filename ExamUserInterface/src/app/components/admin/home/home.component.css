@@ -1,0 +1,26 @@
+
+
+.container-fluid {
+    padding: 20px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Centering styles */
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Adjust height as needed */
+}
+
+.centered-image {
+    width: 300px; /* Set the desired width */
+    height: 300px; /* Set the desired height */
+}

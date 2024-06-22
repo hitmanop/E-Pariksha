@@ -1,0 +1,84 @@
+<div *ngIf="isLoading" class="loading-container">
+
+</div>
+
+
+<div *ngIf="!isLoading && quizzes.length === 0" >
+  <mat-card>
+    <h3 class="text-center" style="margin-top: 30px; font-weight: 800; font-size: 20px; color: blue;">
+      <span >No Quiz Found Click on Add new to add new Quiz</span>
+     </h3>
+    <div mat-card-image class="main-div">
+      <img style="height: 350px;width: 450px;;" mat-card-image src="../../../../assets/image_processing20200413-30958-unc553.jpg">
+    </div>
+   
+    <div class="container text-center mb20">
+      <button routerLink="/admin-dashboard/add-quiz" mat-raised-button color="accent">
+        Add New Quiz
+      </button>
+    </div>
+  </mat-card>
+</div>
+
+
+
+
+
+
+
+
+
+<mat-card class="mt10 mr20 ml20" *ngFor="let q of quizzes">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>
+        {{ q.title }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{ q.category.title }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; ">{{ q.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button
+          [routerLink]="'/admin-dashboard/view-questions/' + q.qid + '/' + q.title"
+          mat-flat-button
+          color="accent"
+        >
+          Questions
+        </button>
+        <button mat-stroked-button color="accent" class="ml20">
+          Max Marks: {{ q.maxMarks }}
+        </button>
+        <button mat-stroked-button color="accent" class="ml20">
+          Questions: {{ q.noOfQuestion }}
+        </button>
+        <button
+          [routerLink]="'/admin-dashboard/quiz/' + q.qid"
+          mat-flat-button
+          color="accent"
+          class="ml20"
+        >
+          Update
+        </button>
+      
+    
+        <button
+          mat-flat-button
+          color="warn"
+          class="ml10"
+        (click)="deleteQuiz(q.qid)"
+        >
+          Delete
+        </button>
+      </mat-card-actions>
+  </mat-card>
+  
+  <div class="container text-center mt20" *ngIf="quizzes.length != 0" >
+    <button routerLink="/admin-dashboard/add-quiz" mat-raised-button color="accent">
+      Add New Quiz
+    </button>
+  </div>
+  

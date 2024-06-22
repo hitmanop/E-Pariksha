@@ -1,0 +1,19 @@
+.example-header-image {
+    background-image: url("../../../../assets/exam.png");
+    background-size: cover;
+  }
+  .text-center {
+    text-align: center;
+  }
+
+  
+  .main-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mat-mdc-card-content:last-child {
+    padding-bottom: 16px;
+    width: 55%;
+}

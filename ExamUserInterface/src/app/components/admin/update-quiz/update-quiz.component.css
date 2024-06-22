@@ -1,0 +1,21 @@
+.w100 {
+    width: 100%;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .mat-mdc-card-content:last-child {
+    padding-bottom: 16px;
+    width: 55%;
+}
+
+.main-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-mdc-card-content:last-child {
+  padding-bottom: 16px;
+  width: 55%;
+}
